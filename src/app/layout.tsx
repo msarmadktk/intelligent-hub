@@ -24,10 +24,7 @@ export default function RootLayout({
             </Link>
             <nav className="main-links">
               <Link href="/">Home</Link>
-              <Link href="/research">Research</Link>
-              <Link href="/research/global-ai-market-2026">
-                Global and AI Market 2026
-              </Link>
+              <Link href="/directory">Directory</Link>
             </nav>
             <ThemeToggle />
           </div>

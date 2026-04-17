@@ -15,10 +15,10 @@ export default function Home() {
           modern, and practical for daily research work.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/research" className="cta-link">
-            Open research index
+          <Link href="/directory" className="cta-link">
+            Open directory
           </Link>
-          <Link href="/research/global-ai-market-2026" className="chip">
+          <Link href="/directory/global-ai-market-2026" className="chip">
             Open first topic report
           </Link>
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
           probabilities, timeline, and methodology assumptions.
         </p>
         <div className="mt-5">
-          <Link href="/research/global-ai-market-2026" className="cta-link">
+          <Link href="/directory/global-ai-market-2026" className="cta-link">
             Read full topic report
           </Link>
         </div>
