@@ -5,17 +5,17 @@
   --font-poppins: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
   --font-lora: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
   --font-jetbrains: "JetBrains Mono", "Consolas", monospace;
-  --bg: #e6dbff;
-  --surface: #ddceff;
-  --surface-soft: #d2bfff;
-  --text: #201633;
-  --muted: #4f4470;
-  --border: #baa3e8;
-  --teal: #0f948d;
-  --teal-soft: #baeae6;
-  --brown: #7e5e42;
-  --purple: #7f53cf;
-  --shadow: 0 16px 44px rgba(43, 24, 88, 0.18);
+  --bg: #f9f7f2;
+  --surface: #ffffff;
+  --surface-soft: #fcfbf9;
+  --text: #322d28;
+  --muted: #746d63;
+  --border: #e8e2d5;
+  --teal: #a68b6d;
+  --teal-soft: #f2ede4;
+  --brown: #8b5e34;
+  --purple: #bf9b7a;
+  --shadow: 0 12px 30px rgba(50, 45, 40, 0.08);
 }
 
 @theme inline {
@@ -68,18 +68,18 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--teal) 20%, transparent), transparent 42%),
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--purple) 34%, transparent), transparent 45%),
-    linear-gradient(
-      150deg,
+    radial-gradient(circle at 5% 5%, color-mix(in srgb, var(--teal) 8%, transparent), transparent 35%),
+    radial-gradient(circle at 95% 5%, color-mix(in srgb, var(--purple) 12%, transparent), transparent 40%),
+    linear-gradient(170deg,
+      #fcfaf7,
       var(--bg),
-      color-mix(in srgb, var(--surface-soft) 52%, var(--bg))
+      color-mix(in srgb, var(--bg) 95%, var(--border))
     );
   color: var(--text);
   font-family: var(--font-poppins), sans-serif;
-  transition:
-    background 220ms ease,
-    color 220ms ease;
+  transition: background 220ms ease, color 220ms ease;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 a {
@@ -159,14 +159,20 @@ a {
 }
 
 .panel {
-  background: linear-gradient(
-    155deg,
-    color-mix(in srgb, var(--surface) 84%, var(--purple)),
-    color-mix(in srgb, var(--surface-soft) 88%, var(--bg))
-  );
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  border-radius: 1.2rem;
-  box-shadow: var(--shadow);
+  border-radius: 1.8rem;
+  box-shadow: 
+    var(--shadow),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+html[data-theme="dark"] .panel {
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--surface) 92%, black),
+      color-mix(in srgb, var(--surface-soft) 95%, black));
 }
 
 .eyebrow {
@@ -194,11 +200,9 @@ a {
   justify-content: center;
   border-radius: 0.8rem;
   border: 1px solid color-mix(in srgb, var(--teal) 40%, var(--border));
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--teal) 80%, var(--purple)),
-    color-mix(in srgb, var(--purple) 78%, #3f2a5f)
-  );
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--teal) 80%, var(--purple)),
+      color-mix(in srgb, var(--purple) 78%, #3f2a5f));
   color: #ffffff;
   font-weight: 600;
   font-size: 0.9rem;
@@ -240,16 +244,32 @@ a {
 
 .metric-card {
   border: 1px solid var(--border);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--surface) 86%, var(--bg));
+  border-radius: 1.4rem;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card:hover {
+  background: var(--surface-soft);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
 }
 
 .topic-card {
   border: 1px solid var(--border);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--surface-soft) 88%, var(--bg));
+  border-radius: 1.8rem;
+  background: linear-gradient(
+    165deg,
+    var(--surface-soft),
+    var(--surface)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
 }
 
 .report-prose p {
@@ -260,12 +280,27 @@ a {
   color: var(--text);
 }
 
-.report-prose p + p {
+.report-prose p+p {
   margin-top: 1rem;
 }
 
 .section-gap {
-  margin-top: 2rem;
+  margin-top: 4.5rem;
+  position: relative;
+}
+
+.section-gap::before {
+  content: "";
+  position: absolute;
+  top: -2.25rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in srgb, var(--teal) 30%, transparent),
+      color-mix(in srgb, var(--purple) 30%, transparent),
+      transparent);
 }
 
 .data-table {
@@ -327,41 +362,37 @@ a {
 .bar-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(
-    95deg,
-    color-mix(in srgb, var(--teal) 82%, var(--purple)),
-    color-mix(in srgb, var(--purple) 80%, var(--brown))
-  );
+  background: linear-gradient(95deg,
+      color-mix(in srgb, var(--teal) 82%, var(--purple)),
+      color-mix(in srgb, var(--purple) 80%, var(--brown)));
 }
 
 .bar-fill-alt {
-  background: linear-gradient(
-    95deg,
-    color-mix(in srgb, var(--purple) 82%, var(--teal)),
-    color-mix(in srgb, var(--brown) 65%, var(--purple))
-  );
+  background: linear-gradient(95deg,
+      color-mix(in srgb, var(--purple) 82%, var(--teal)),
+      color-mix(in srgb, var(--brown) 65%, var(--purple)));
 }
 
 .bar-fill-risk {
-  background: linear-gradient(
-    95deg,
-    color-mix(in srgb, var(--brown) 68%, var(--purple)),
-    color-mix(in srgb, var(--teal) 52%, var(--brown))
-  );
+  background: linear-gradient(95deg,
+      color-mix(in srgb, var(--brown) 68%, var(--purple)),
+      color-mix(in srgb, var(--teal) 52%, var(--brown)));
 }
 
 .scenario-card {
-  border-radius: 0.95rem;
+  border-radius: 1rem;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 85%, var(--surface-soft));
-  padding: 0.9rem;
+  background: color-mix(in srgb, var(--surface) 80%, var(--surface-soft));
+  backdrop-filter: blur(8px);
+  padding: 1.1rem;
 }
 
 .risk-card {
-  border-radius: 0.95rem;
+  border-radius: 1rem;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface-soft) 80%, var(--bg));
-  padding: 0.9rem;
+  background: color-mix(in srgb, var(--surface-soft) 80%, var(--surface));
+  backdrop-filter: blur(8px);
+  padding: 1.1rem;
 }
 
 .narrative-accordion summary {
@@ -390,11 +421,9 @@ a {
   width: 98px;
   height: 98px;
   border-radius: 999px;
-  background: radial-gradient(
-    circle at center,
-    color-mix(in srgb, var(--purple) 42%, transparent),
-    transparent 68%
-  );
+  background: radial-gradient(circle at center,
+      color-mix(in srgb, var(--purple) 42%, transparent),
+      transparent 68%);
   pointer-events: none;
 }
 
@@ -403,6 +432,7 @@ a {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -425,6 +455,7 @@ a {
 }
 
 @media (max-width: 760px) {
+
   .site-shell,
   .page-shell {
     width: calc(100% - 1.2rem);
