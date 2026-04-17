@@ -22,6 +22,15 @@ const topics: Topic[] = [
     status: "available",
   },
   {
+    id: "personal-role-report",
+    title: "Personal Role Report",
+    description:
+      "My current position in Zahanat, CMO strengths, six-month growth plan, and path toward CEO-level capability.",
+    category: "Leadership",
+    href: "/directory/personal-role-report",
+    status: "available",
+  },
+  {
     id: "finance",
     title: "Finance & Fintech Outlook",
     description: "Upcoming analysis on global financial shifts, digital banking, and investment transparency.",
