@@ -21,7 +21,7 @@ const homeTopics = [
 export default function Home() {
   return (
     <main className="page-shell">
-      <section className="panel home-hero fade-up overflow-hidden">
+      <section className="home-hero fade-up overflow-hidden">
         <div className="home-visual home-visual-expanded p-6 md:p-10">
           <div className="home-orbit home-orbit-expanded">
             <Link href="/directory" className="home-orbit-core home-orbit-core-link">

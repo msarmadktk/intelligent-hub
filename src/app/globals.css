@@ -429,20 +429,35 @@ html[data-theme="dark"] .panel {
 
 .home-hero {
   position: relative;
+  border-radius: 2rem;
 }
 
 .home-hero::after {
   content: "";
   position: absolute;
-  inset: auto -8% -35% auto;
-  width: 360px;
-  height: 360px;
+  inset: auto -10% -28% auto;
+  width: 420px;
+  height: 420px;
   border-radius: 999px;
   background: radial-gradient(
     circle at center,
-    color-mix(in srgb, var(--teal) 14%, transparent),
+    color-mix(in srgb, var(--teal) 16%, transparent),
     transparent 68%
   );
+  pointer-events: none;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 6% 12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--surface) 42%, transparent),
+    transparent 70%
+  );
+  filter: blur(10px);
   pointer-events: none;
 }
 
@@ -454,7 +469,7 @@ html[data-theme="dark"] .panel {
 }
 
 .home-visual-expanded {
-  min-height: 720px;
+  min-height: 680px;
 }
 
 .home-orbit {
@@ -470,7 +485,7 @@ html[data-theme="dark"] .panel {
 }
 
 .home-orbit-expanded {
-  width: min(100%, 760px);
+  width: min(100%, 700px);
 }
 
 .home-orbit-expanded .home-orbit-core {
@@ -530,8 +545,8 @@ html[data-theme="dark"] .panel {
 }
 
 .home-orbit-expanded .home-orbit-ring-one {
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
 }
 
 .home-orbit-ring-two {
@@ -541,8 +556,8 @@ html[data-theme="dark"] .panel {
 }
 
 .home-orbit-expanded .home-orbit-ring-two {
-  width: 440px;
-  height: 440px;
+  width: 390px;
+  height: 390px;
 }
 
 .home-orbit-ring-three {
@@ -552,8 +567,8 @@ html[data-theme="dark"] .panel {
 }
 
 .home-orbit-expanded .home-orbit-ring-three {
-  width: 620px;
-  height: 620px;
+  width: 540px;
+  height: 540px;
 }
 
 .home-orbit-chip {
@@ -584,18 +599,18 @@ html[data-theme="dark"] .panel {
 }
 
 .home-orbit-link-one {
-  top: 10%;
-  right: 18%;
+  top: 16%;
+  right: 21%;
 }
 
 .home-orbit-link-two {
-  left: 11%;
-  bottom: 19%;
+  left: 17%;
+  bottom: 21%;
 }
 
 .home-orbit-link-three {
-  right: 10%;
-  bottom: 13%;
+  right: 18%;
+  bottom: 15%;
 }
 
 .home-step {
@@ -627,7 +642,7 @@ html[data-theme="dark"] .panel {
   }
 
   .home-visual-expanded {
-    min-height: 540px;
+    min-height: 500px;
   }
 
   .home-orbit {
@@ -635,7 +650,7 @@ html[data-theme="dark"] .panel {
   }
 
   .home-orbit-expanded {
-    width: min(100%, 420px);
+    width: min(100%, 380px);
   }
 
   .home-orbit-expanded .home-orbit-core {
@@ -656,8 +671,8 @@ html[data-theme="dark"] .panel {
   }
 
   .home-orbit-expanded .home-orbit-ring-one {
-    width: 180px;
-    height: 180px;
+    width: 165px;
+    height: 165px;
   }
 
   .home-orbit-ring-two {
@@ -666,8 +681,8 @@ html[data-theme="dark"] .panel {
   }
 
   .home-orbit-expanded .home-orbit-ring-two {
-    width: 270px;
-    height: 270px;
+    width: 240px;
+    height: 240px;
   }
 
   .home-orbit-ring-three {
@@ -676,8 +691,8 @@ html[data-theme="dark"] .panel {
   }
 
   .home-orbit-expanded .home-orbit-ring-three {
-    width: 380px;
-    height: 380px;
+    width: 320px;
+    height: 320px;
   }
 
   .home-orbit-link {
@@ -686,18 +701,18 @@ html[data-theme="dark"] .panel {
   }
 
   .home-orbit-link-one {
-    top: 8%;
+    top: 14%;
     right: 6%;
   }
 
   .home-orbit-link-two {
-    left: 2%;
-    bottom: 23%;
+    left: 7%;
+    bottom: 20%;
   }
 
   .home-orbit-link-three {
-    right: 1%;
-    bottom: 7%;
+    right: 7%;
+    bottom: 10%;
   }
 }
 
