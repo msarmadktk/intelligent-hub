@@ -28,6 +28,16 @@ export interface BoundaryTrack {
   responsibilities: string[];
 }
 
+export interface HeartSeriesVideo {
+  id: string;
+  episode: string;
+  englishTitle: string;
+  originalTitle: string;
+  note: string;
+  youtubeUrl: string;
+  videoId: string;
+}
+
 export const reportTitle = "Personal Role Report";
 
 export const reportSubtitle =
@@ -439,6 +449,21 @@ export const weeklyModel = [
       "Partnership observation",
       "Offer improvement",
     ],
+  },
+];
+
+export const heartSeriesVideos: HeartSeriesVideo[] = [
+  {
+    id: "mehmed-episode-77",
+    episode: "Episode 77",
+    englishTitle:
+      "Will Sultan Mehmed Listen to Candarli or Aksemseddin?",
+    originalTitle:
+      "Sultan Mehmed, Candarli'yi Mi, Aksemseddin'i Mi Dinleyecek? - Mehmed: Fetihler Sultani 77. Bolum",
+    note:
+      "A Mehmed: Sultan of Conquests episode that feels especially close to my heart and worth revisiting right inside this space.",
+    youtubeUrl: "https://www.youtube.com/watch?v=pcpqaSKtpxM",
+    videoId: "pcpqaSKtpxM",
   },
 ];
 

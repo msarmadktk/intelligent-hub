@@ -3,6 +3,7 @@ import {
   executiveSummary,
   finalConclusion,
   growthPhases,
+  heartSeriesVideos,
   quickMetrics,
   reportSubtitle,
   reportTitle,
@@ -64,6 +65,73 @@ function BulletCardList({ items }: { items: string[] }) {
         <article key={item} className="metric-card p-4">
           <p className="text-sm leading-6 text-foreground">{item}</p>
         </article>
+      ))}
+    </div>
+  );
+}
+
+function FavouriteSeriesSection() {
+  return (
+    <div className="mt-3 grid gap-3">
+      {heartSeriesVideos.map((video, index) => (
+        <details
+          key={video.id}
+          className="panel narrative-accordion fade-up overflow-hidden"
+          style={{ animationDelay: `${index * 70}ms` }}
+        >
+          <summary>
+            <span>{video.englishTitle}</span>
+            <span className="chip">{video.episode}</span>
+          </summary>
+          <div className="grid gap-4 p-4 md:grid-cols-2 md:p-5">
+            <article className="topic-card p-5">
+              <p className="eyebrow">A series close to my heart</p>
+              <h3 className="mt-3 text-xl font-semibold tracking-tight text-foreground">
+                {video.englishTitle}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                {video.note}
+              </p>
+              <div className="mt-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--teal)]">
+                  Original title
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">
+                  {video.originalTitle}
+                </p>
+              </div>
+              <a
+                href={video.youtubeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="cta-link mt-4 w-fit"
+              >
+                Watch on YouTube
+              </a>
+            </article>
+
+            <article className="panel overflow-hidden p-3 md:p-4">
+              <div
+                className="overflow-hidden rounded-[1.3rem] border border-[color:var(--border)] bg-black"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0`}
+                  title={video.englishTitle}
+                  className="h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                Open the episode card to watch it here on the website, or use the
+                YouTube button if you want to open the original page.
+              </p>
+            </article>
+          </div>
+        </details>
       ))}
     </div>
   );
@@ -284,6 +352,16 @@ export function PersonalRoleReportView() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="section-gap">
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="eyebrow">Series close to my heart</p>
+          <span className="chip">Embedded watching</span>
+          <span className="chip">English titles</span>
+          <span className="chip">{heartSeriesVideos.length} saved</span>
+        </div>
+        <FavouriteSeriesSection />
       </section>
 
       <section className="section-gap">
