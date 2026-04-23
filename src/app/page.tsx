@@ -20,7 +20,7 @@ const homeTopics = [
 
 export default function Home() {
   return (
-    <main className="page-shell">
+    <main className="page-shell home-page-shell">
       <section className="home-hero fade-up overflow-hidden">
         <div className="home-visual home-visual-expanded p-6 md:p-10">
           <div className="home-orbit home-orbit-expanded">

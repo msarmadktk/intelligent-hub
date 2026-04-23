@@ -158,6 +158,11 @@ a {
   padding: 2rem 0 4rem;
 }
 
+.home-page-shell {
+  padding-top: 0.75rem;
+  padding-bottom: 2.75rem;
+}
+
 .panel {
   background: var(--surface);
   backdrop-filter: blur(20px);
@@ -463,13 +468,13 @@ html[data-theme="dark"] .panel {
 
 .home-visual {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 280px;
 }
 
 .home-visual-expanded {
-  min-height: 680px;
+  min-height: 620px;
 }
 
 .home-orbit {
@@ -515,6 +520,8 @@ html[data-theme="dark"] .panel {
   font-weight: 700;
   letter-spacing: 0.04em;
   box-shadow: var(--shadow);
+  z-index: 3;
+  cursor: pointer;
 }
 
 .home-orbit-core-link {
@@ -537,6 +544,7 @@ html[data-theme="dark"] .panel {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 1px dashed color-mix(in srgb, var(--teal) 26%, var(--border));
+  pointer-events: none;
 }
 
 .home-orbit-ring-one {
@@ -581,6 +589,7 @@ html[data-theme="dark"] .panel {
   font-size: 0.82rem;
   font-weight: 600;
   box-shadow: var(--shadow);
+  z-index: 3;
 }
 
 .home-orbit-link {
@@ -642,7 +651,7 @@ html[data-theme="dark"] .panel {
   }
 
   .home-visual-expanded {
-    min-height: 500px;
+    min-height: 460px;
   }
 
   .home-orbit {
