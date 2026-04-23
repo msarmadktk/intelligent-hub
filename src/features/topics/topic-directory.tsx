@@ -31,6 +31,15 @@ const topics: Topic[] = [
     status: "available",
   },
   {
+    id: "mehmed-fetihler-sultani",
+    title: "Mehmed: Sultan of Conquests",
+    description:
+      "Public watch page for saved Mehmed episodes with English titles, in-site playback, and direct YouTube access.",
+    category: "Series Archive",
+    href: "/directory/mehmed-fetihler-sultani",
+    status: "available",
+  },
+  {
     id: "finance",
     title: "Finance & Fintech Outlook",
     description: "Upcoming analysis on global financial shifts, digital banking, and investment transparency.",
